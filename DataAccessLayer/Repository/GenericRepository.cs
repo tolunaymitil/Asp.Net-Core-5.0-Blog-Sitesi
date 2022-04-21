@@ -26,9 +26,10 @@ namespace DataAccessLayer.Repository
             c.SaveChanges();
         }
 
-        public T GetByID(Expression<Func<T, bool>> filter)
+        public T GetByID(int id)
         {
-            return _object.SingleOrDefault(filter);
+            using var c = new Context();
+            return c.Set<T>().Find(id);
         }
 
         public List<T> GetListAll()

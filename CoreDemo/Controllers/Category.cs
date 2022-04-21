@@ -33,7 +33,7 @@ namespace CoreDemo.Controllers
         public ActionResult AddCategory(Category p)
         {
              
-                cm.CategoryAdd(p);
+                cm.TAdd(p);
                 return RedirectToAction("GetCategoryList");
             
         }

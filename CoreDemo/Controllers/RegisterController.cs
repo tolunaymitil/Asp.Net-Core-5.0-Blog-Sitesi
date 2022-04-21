@@ -32,7 +32,7 @@ namespace CoreDemo.Controllers
 
             if (results.IsValid)
             {
-                wm.WriterAdd(p);    //Parametreden gelen degerı ekliyoruz.
+                wm.TAdd(p);    //Parametreden gelen degerı ekliyoruz.
             return RedirectToAction("Index","Blog");
             }
             else

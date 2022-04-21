@@ -14,12 +14,21 @@ namespace DataAccessLayer.EntityFramework
     public class EfBlogRepository : GenericRepository<Blog>, IBlogDal
     {
         public List<Blog> GetListWithCategory()   // Frontendde yazılar uzerınde categoryname gösterebilmek için bunu yaptık.
-      {
-            using (var c=new Context())
+        {
+            using (var c = new Context())
             {
-                return c.Blogs.Include(x => x.Category).ToList(); 
+                return c.Blogs.Include(x => x.Category).ToList();
             }
-                
+
+        }
+
+        public List<Blog> GetListWithCategoryByWriter(int id)
+            // Bloglarda Kategori Adının Listelenmesi için 57. derste yazdık.
+        {
+            using (var c = new Context())
+            {
+                return c.Blogs.Include(x => x.Category).Where(x=>x.WriterID==id).ToList();
+            }
         }
     }
 }
